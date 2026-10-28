@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Salao IoT",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btnCafe", "top": -120, "left": -150, "attrs": { "color": "yellow", "label": "Cafe" } },
+    { "type": "wokwi-pushbutton", "id": "btnAgua", "top": -60, "left": -150, "attrs": { "color": "blue", "label": "Agua" } },
+    { "type": "wokwi-pushbutton", "id": "btnSuja", "top": 0, "left": -150, "attrs": { "color": "black", "label": "Suja" } },
+    { "type": "wokwi-pushbutton", "id": "btnLimpeza", "top": 60, "left": -150, "attrs": { "color": "green", "label": "Limpeza" } },
+    { "type": "wokwi-pushbutton", "id": "btnCopa", "top": 120, "left": -150, "attrs": { "color": "white", "label": "Copa" } },
+    { "type": "wokwi-led", "id": "ledVerde", "top": -130, "left": 220, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledVermelho", "top": -130, "left": 270, "attrs": { "color": "red" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": -60, "left": 240, "attrs": { "volume": "0.1" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "btnCafe:1.l", "esp:12", "green", [] ],
+    [ "btnCafe:2.l", "esp:GND.1", "black", [] ],
+    [ "btnAgua:1.l", "esp:13", "green", [] ],
+    [ "btnAgua:2.l", "esp:GND.1", "black", [] ],
+    [ "btnSuja:1.l", "esp:14", "green", [] ],
+    [ "btnSuja:2.l", "esp:GND.1", "black", [] ],
+    [ "btnLimpeza:1.l", "esp:15", "green", [] ],
+    [ "btnLimpeza:2.l", "esp:GND.1", "black", [] ],
+    [ "btnCopa:1.l", "esp:4", "green", [] ],
+    [ "btnCopa:2.l", "esp:GND.1", "black", [] ],
+
+    [ "ledVerde:A", "esp:26", "green", [] ],
+    [ "ledVerde:C", "esp:GND.2", "black", [] ],
+    [ "ledVermelho:A", "esp:27", "red", [] ],
+    [ "ledVermelho:C", "esp:GND.2", "black", [] ],
+
+    [ "buzzer:1", "esp:GND.2", "black", [] ],
+    [ "buzzer:2", "esp:33", "red", [] ]
+  ],
+  "dependencies": {}
+}
